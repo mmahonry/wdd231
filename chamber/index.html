@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Mahonry Munoz" />
+  <meta name="description" content="Chamber of Commerce directory - local businesses and members." />
+
+  <meta property="og:title" content="Timbuktu Chamber  Commerce">
+  <meta property="og:description" content="Promoting local economic growth, supporting businesses, and fostering community.">
+  <meta property="og:image" content="images/og-image.jpg">
+  <meta property="og:url" content="https://username.github.io/wdd231/chamber/directory.html">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Timbuktu Chamber of Commerce">
+  <meta name="twitter:description" content="Promoting local economic growth, supporting businesses, and fostering community.">
+  <meta name="twitter:image" content="images/og-image.jpg">
+
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+  <title>Timbuktu Chamber  — Directory</title>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="js/navigation.js" defer></script>
+  <script src="js/dates.js" defer></script>
+  <script src="js/directory.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+  <img src="images/icon.png" alt="Chamber Logo" class="logo-icon">
+  <h1>Timbuktu Chamber of Commerce</h1>
+</div>
+
+      <button id="hamburger" class="hamburger" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+      </button>
+
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html" aria-current="page">Directory</a></li>
+          <li><a href="join.html">Join</a></li>
+          <li><a href="discover.html">Discover</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+    </section>
+
+    <section class="controls">
+      <div class="view-toggle" role="tablist" aria-label="View toggles">
+        <button id="gridView" class="view-btn" aria-pressed="true">Grid View</button>
+        <button id="listView" class="view-btn" aria-pressed="false">List View</button>
+      </div>
+    </section>
+
+    <section id="directory" class="directory grid" aria-live="polite">
+      <!-- Member cards are injected here by directory.js -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <address>
+        Timbuktu Chamber of Commerce<br>
+        10 Rue De La Paix<br>
+        Timbuktu, Mali 999<br>
+        <a href="mailto:info@timbuktucoc.org">info@timbuktucoc.org</a><br>
+        (223) 555-2300
+      </address>
+
+      <div class="social">
+        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fa-brands fa-square-youtube"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+
+      <div class="credits">
+        <p>WDD 231 Class Project<br>
+          Mahonry Munoz g<br>
+           <span id="currentYear"></span> Timbuktu Chamber of Commerce
+        </p>
+        <p id="lastModified">Last modified: </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,65 @@
+[
+  {
+    "name": "TechZone Inc.",
+    "address": "123 Tech St",
+    "phone": "223-555-0101",
+    "website": "https://techzone.example.com",
+    "image": "tech.png",
+    "membership": 3,
+    "description": "IT solutions and managed services."
+  },
+  {
+    "name": "Mali Bakery",
+    "address": "45 Market Rd",
+    "phone": "223-555-0202",
+    "website": "https://malibakery.example.com",
+    "image": "bake.png",
+    "membership": 2,
+    "description": "Artisan breads, pastries, and catered desserts."
+  },
+  {
+    "name": "Savannah Prints",
+    "address": "22 Printer Ave",
+    "phone": "223-555-0303",
+    "website": "https://savannahprints.example.com",
+    "image": "prints.png",
+    "membership": 1,
+    "description": "Custom printing and graphic services."
+  },
+  {
+    "name": "Desert Tours Co.",
+    "address": "6 Caravan Way",
+    "phone": "223-555-0404",
+    "website": "https://deserttours.example.com",
+    "image": "tours.png",
+    "membership": 2,
+    "description": "Guided tours, outdoor adventures, and events."
+  },
+  {
+    "name": "Riverbank Cafe",
+    "address": "88 Riverside Blvd",
+    "phone": "223-555-0505",
+    "website": "https://riverbankcafe.example.com",
+    "image": "cafe.png",
+    "membership": 1,
+    "description": "Local cafe serving breakfast & lunch with river views."
+  },
+  {
+    "name": "Horizon Financial",
+    "address": "200 Commerce St",
+    "phone": "223-555-0606",
+    "website": "https://horizonfinancial.example.com",
+    "image": "business.png",
+    "membership": 3,
+    "description": "Accounting, bookkeeping, and business advisory services."
+  },
+  {
+    "name": "Green Leaf Landscaping",
+    "address": "12 Garden Ln",
+    "phone": "223-555-0707",
+    "website": "https://greenleaf.example.com",
+    "image": "landscaping.png",
+    "membership": 2,
+    "description": "Commercial and residential landscaping."
+  }
+]
