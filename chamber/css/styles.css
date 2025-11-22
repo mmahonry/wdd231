@@ -280,7 +280,7 @@ a.visit-site { display:inline-block; margin-top:.4rem; color:var(--primary); fon
 .events-box,
 .weather-box,
 .forecast-box {
-  background: #004e642c;#
+  background: #004e642c;
   border-radius: 8px;
   padding: 1rem;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
