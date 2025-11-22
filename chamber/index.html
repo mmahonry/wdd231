@@ -19,7 +19,7 @@
 
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
-  <title>Timbuktu Chamber  — Directory</title>
+  <title>Timbuktu Chamber — Directory</title>
 
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -30,7 +30,9 @@
   <script src="js/navigation.js" defer></script>
   <script src="js/dates.js" defer></script>
   <script src="js/directory.js" defer></script>
+  <script src="js/spotlights.js" defer></script>
 </head>
+
 <body>
   <header class="site-header">
     <div class="header-inner">
@@ -46,7 +48,7 @@
       <nav id="main-nav" class="main-nav" aria-label="Main navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="directory.html" aria-current="page">Directory</a></li>
+          <li><a href="directory.html">Directory</a></li>
           <li><a href="join.html">Join</a></li>
           <li><a href="discover.html">Discover</a></li>
         </ul>
@@ -54,46 +56,84 @@
     </div>
   </header>
 
-  <main>
-    <section class="intro">
-    </section>
+<main>
 
-    <section class="controls">
-      <div class="view-toggle" role="tablist" aria-label="View toggles">
-        <button id="gridView" class="view-btn" aria-pressed="true">Grid View</button>
-        <button id="listView" class="view-btn" aria-pressed="false">List View</button>
-      </div>
-    </section>
-
-    <section id="directory" class="directory grid" aria-live="polite">
-      <!-- Member cards are injected here by directory.js -->
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <address>
-        Timbuktu Chamber of Commerce<br>
-        10 Rue De La Paix<br>
-        Timbuktu, Mali 999<br>
-        <a href="mailto:info@timbuktucoc.org">info@timbuktucoc.org</a><br>
-        (223) 555-2300
-      </address>
-
-      <div class="social">
-        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="#" aria-label="YouTube"><i class="fa-brands fa-square-youtube"></i></a>
-        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-      </div>
-
-      <div class="credits">
-        <p>WDD 231 Class Project<br>
-          Mahonry Munoz g<br>
-           <span id="currentYear"></span> Timbuktu Chamber of Commerce
-        </p>
-        <p id="lastModified">Last modified: </p>
-      </div>
+  <!-- HERO -->
+  <section class="hero">
+    <img src="images/skyline-mexico.jpg" alt="City skyline of Timbuktu" class="hero-img">
+    <div class="hero-text">
+      <h2>Welcome to the Timbuktu Chamber of Commerce</h2>
+      <p>Building connections, supporting businesses, and strengthening the community.</p>
+      <a class="cta-btn" href="join.html">Join the Chamber</a>
     </div>
-  </footer>
+  </section>
+
+  <!-- CURRENT EVENTS -->
+  <section class="events">
+    <h2>Upcoming Events</h2>
+    <div class="event-card">
+      <h3>Business Networking Breakfast</h3>
+      <p>March 18, 2025 — Chamber Center</p>
+      <p>Meet local business owners and expand your network.</p>
+    </div>
+
+    <div class="event-card">
+      <h3>Small Business Workshop</h3>
+      <p>March 22, 2025 — Timbuktu Library</p>
+      <p>Learn digital tools and strategies for business growth.</p>
+    </div>
+  </section>
+
+  <!-- WEATHER -->
+<section class="weather">
+  <h2>Local Weather</h2>
+
+  <div class="current-weather">
+    <img id="weatherIcon" alt="Weather icon">
+
+    <p><strong>Temperature:</strong> <span id="currentTemp"></span></p>
+    <p><strong>Conditions:</strong> <span id="weatherDesc"></span></p>
+  </div>
+
+  <h3>3-Day Forecast</h3>
+  <div id="forecast" class="forecast-grid"></div>
+</section>
+
+
+
+  <!-- SPOTLIGHTS -->
+  <section class="spotlights">
+    <h2>Business Spotlights</h2>
+    <div id="spotlight-container" class="spotlight-container">
+      <!-- JS inserts 2–3 spotlight cards -->
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <address>
+      Timbuktu Chamber of Commerce<br>
+      10 Rue De La Paix<br>
+      Timbuktu, Mali 999<br>
+      <a href="mailto:info@timbuktucoc.org">info@timbuktucoc.org</a><br>
+      (223) 555-2300
+    </address>
+
+    <div class="social">
+      <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#"><i class="fa-brands fa-square-youtube"></i></a>
+      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+
+    <div class="credits">
+      <p>WDD 231 Class Project – Mahonry Munoz</p>
+      <p>&copy; <span id="currentYear"></span> Timbuktu Chamber of Commerce</p>
+      <p id="lastModified">Last Modified: </p>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

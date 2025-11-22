@@ -21,7 +21,6 @@ function displayMembers(members) {
     const card = document.createElement('article');
     card.className = 'member-card';
 
-    // image wrapper with fallback
     const imgWrap = `<div class="logo-wrap">
       <img src="images/${member.image}" alt="${escapeHtml(member.name)} logo" onerror="this.onerror=null;this.src='images/placeholder.png'">
     </div>`;
@@ -41,7 +40,6 @@ function displayMembers(members) {
   });
 }
 
-// small helper to avoid basic injection when injecting JSON text
 function escapeHtml(string) {
   if (!string) return '';
   return String(string)
@@ -58,7 +56,7 @@ function membershipName(level) {
          level === 1 ? 'Bronze' : 'Member';
 }
 
-/* View toggle logic with accessibility updates */
+/* View toggle logic */
 const gridBtn = document.getElementById('gridView');
 const listBtn = document.getElementById('listView');
 const directory = document.getElementById('directory');
@@ -78,6 +76,21 @@ if (gridBtn && listBtn && directory) {
     gridBtn.setAttribute('aria-pressed', 'false');
   });
 }
+
+/* ---------------------------------------------
+   ADD: ACTIVE NAV LINK HIGHLIGHT
+--------------------------------------------- */
+(function setActiveNav() {
+  const currentPage = location.pathname.split('/').pop(); // e.g., "directory.html"
+  const navLinks = document.querySelectorAll('.main-nav a');
+
+  navLinks.forEach(link => {
+    const linkPage = link.getAttribute('href');
+    if (linkPage && linkPage.includes(currentPage)) {
+      link.setAttribute('aria-current', 'page');
+    }
+  });
+})();
 
 // initialize
 getMembers();

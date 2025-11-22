@@ -57,6 +57,13 @@
   background: rgba(255,255,255,0.08);
 }
 
+/* ACTIVE PAGE HIGHLIGHT */
+.main-nav a[aria-current="page"] {
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  border-radius: 6px;
+}
+
 /* Hamburger */
 .hamburger {
   background: none;
@@ -210,3 +217,170 @@
 
 /* small tweaks */
 a.visit-site { display:inline-block; margin-top:.4rem; color:var(--primary); font-weight:600; text-decoration:none;}
+
+
+/* 11/21/2025 */
+
+/* HERO */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  background: rgba(0,0,0,0.45);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: .75rem;
+  background: var(--accent);
+  color: white;
+  padding: .6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* EVENTS */
+.events {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.event-card {
+  background: #fff;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* WEATHER SECTION */
+.weather {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.current-weather {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.current-weather img {
+  width: 70px;
+  height: 70px;
+}
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.forecast-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+}
+
+
+/* SPOTLIGHTS SECTION */
+.spotlights {
+  text-align: center;        /* Centers the title */
+  margin-top: 2rem;
+}
+
+.spotlights h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+/* Grid container */
+.spotlight-container {
+  max-width: 1100px;
+  margin: 1rem auto 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+/* Individual cards */
+.spotlight-card {
+  background: white;
+  padding: 1.2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;        /* Ensures image + text is centered */
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* Extra centering power */
+}
+
+/* Image in cards */
+.spotlight-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+/* Text inside */
+.spotlight-card p {
+  margin: 0.3rem 0;
+  color: var(--muted);
+}
+
+/* Membership badge */
+.level {
+  display: inline-block;
+  margin-top: .6rem;
+  padding: .35rem .75rem;
+  border-radius: 6px;
+  font-size: .85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.level.gold { background: gold; color: #000; }
+.level.silver { background: silver; color: #000; }
+.level.bronze { background: #cd7f32; color: #fff; }
+
+/* RESPONSIVE HERO */
+@media (max-width: 700px) {
+  .hero {
+    height: 220px;
+  }
+
+  .forecast-grid {
+    flex-direction: column;
+  }
+}
+ 
