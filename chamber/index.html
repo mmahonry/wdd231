@@ -31,6 +31,7 @@
   <script src="js/dates.js" defer></script>
   <script src="js/directory.js" defer></script>
   <script src="js/spotlights.js" defer></script>
+  <script src="js/weather.js" defer></script>
 </head>
 
 <body>
@@ -68,9 +69,13 @@
     </div>
   </section>
 
-  <!-- CURRENT EVENTS -->
-  <section class="events">
-    <h2>Upcoming Events</h2>
+  <!-- EVENTS + WEATHER WRAPPER -->
+<section class="events-weather">
+
+  <!-- EVENTS -->
+  <div class="events-box">
+    <h2>Events</h2>
+
     <div class="event-card">
       <h3>Business Networking Breakfast</h3>
       <p>March 18, 2025 — Chamber Center</p>
@@ -82,32 +87,48 @@
       <p>March 22, 2025 — Timbuktu Library</p>
       <p>Learn digital tools and strategies for business growth.</p>
     </div>
-  </section>
-
-  <!-- WEATHER -->
-<section class="weather">
-  <h2>Local Weather</h2>
-
-  <div class="current-weather">
-    <img id="weatherIcon" alt="Weather icon">
-
-    <p><strong>Temperature:</strong> <span id="currentTemp"></span></p>
-    <p><strong>Conditions:</strong> <span id="weatherDesc"></span></p>
   </div>
 
-  <h3>3-Day Forecast</h3>
-  <div id="forecast" class="forecast-grid"></div>
+  <!-- WEATHER -->
+  <div class="weather-box">
+    <h2>Current Weather</h2>
+
+    <div class="current-weather">
+      <img id="weatherIcon" src="images/weather-default.png" alt="Weather icon">
+
+      <div class="weather-info">
+        <p><strong><span id="temp"></span></strong></p>
+        <p id="weatherDesc"></p>
+        <p>High: <span id="highTemp"></span></p>
+        <p>Low: <span id="lowTemp"></span></p>
+        <p>Humidity: <span id="humidity"></span></p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FORECAST -->
+  <div class="forecast-box">
+    <h2>Weather Forecast</h2>
+    <div id="forecast"></div>
+  </div>
+
 </section>
 
-
-
   <!-- SPOTLIGHTS -->
-  <section class="spotlights">
-    <h2>Business Spotlights</h2>
-    <div id="spotlight-container" class="spotlight-container">
-      <!-- JS inserts 2–3 spotlight cards -->
-    </div>
-  </section>
+<section class="spotlights">
+  <h2>Timbuktu's Business Community</h2>
+
+  <div id="spotlight-container" class="spotlight-container">
+    <!-- JS inserts 2–3 spotlight cards -->
+  </div>
+
+  <!-- Centered button wrapper -->
+  <div class="spotlight-btn-wrapper">
+    <a href="directory.html" class="spotlight-btn">View All Members →</a>
+  </div>
+</section>
+
 
 </main>
 

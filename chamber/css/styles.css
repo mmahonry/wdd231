@@ -8,11 +8,16 @@
 
 /* Header */
 .site-header {
+  position: sticky;      
+  top: 0;                
+  z-index: 1000;         
+
   background: var(--primary);
   color: #fff;
   padding: 1rem 0;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
+
 .header-inner {
   max-width: 1100px;
   margin: 0 auto;
@@ -258,61 +263,86 @@ a.visit-site { display:inline-block; margin-top:.4rem; color:var(--primary); fon
   font-weight: 700;
 }
 
-/* EVENTS */
-.events {
+
+/* ============================
+   EVENTS + WEATHER GRID
+============================ */
+.events-weather {
   max-width: 1100px;
   margin: 2rem auto;
   padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
 }
 
-.event-card {
-  background: #fff;
+/* Shared Panel Styles */
+.events-box,
+.weather-box,
+.forecast-box {
+  background: #004e642c;#
+  border-radius: 8px;
   padding: 1rem;
-  margin: 1rem 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* Panel Title Bars */
+.events-box h2,
+.weather-box h2,
+.forecast-box h2 {
+  background: #004e64;   /* teal strip */
+  color: white;          /* ← white text like you asked */
+  padding: 0.4rem 0.75rem;
+  margin: -1rem -1rem 1rem -1rem;
+  font-size: 1.15rem;
+  border-radius: 8px 8px 0 0;
+}
+
+/* EVENTS SECTION */
+.events-box .event-card {
+  background: #ffffff;
+  padding: 0.9rem;
   border-radius: var(--radius);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  color: #000;  /* ensure inside text is black */
 }
 
-/* WEATHER SECTION */
-.weather {
-  max-width: 1100px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
+/* CURRENT WEATHER */
 .current-weather {
   display: flex;
   align-items: center;
   gap: 1rem;
+  color: #000;  /* force black inner text */
 }
 
 .current-weather img {
   width: 70px;
   height: 70px;
+  object-fit: contain;
 }
 
-.forecast-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+.weather-info p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  color: #000; /* ensure black */
 }
 
-.forecast-card {
-  background: white;
-  padding: 1rem;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
-
+/* FORECAST SECTION — text only */
+.forecast-box p {
+  margin: 0.45rem 0;
+  font-size: 1rem;
+  color: #000; /* black text */
 }
 
 
-/* SPOTLIGHTS SECTION */
+
+/* ============================
+   SPOTLIGHTS SECTION
+============================ */
 .spotlights {
-  text-align: center;        /* Centers the title */
-  margin-top: 2rem;
+  text-align: center;
+  margin-top: 3rem;
 }
 
 .spotlights h2 {
@@ -333,26 +363,25 @@ a.visit-site { display:inline-block; margin-top:.4rem; color:var(--primary); fon
 
 /* Individual cards */
 .spotlight-card {
-  background: white;
+  background: #004e641a;
   padding: 1.2rem;
   border-radius: var(--radius);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: center;        /* Ensures image + text is centered */
+  box-shadow: 0 4px 12px rgba(235, 233, 233, 0.1);
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;       /* Extra centering power */
+  align-items: center;
 }
 
-/* Image in cards */
+/* Card image */
 .spotlight-card img {
   width: 100px;
   height: 100px;
   object-fit: contain;
   margin-bottom: 0.75rem;
-  display: block;
 }
 
-/* Text inside */
+/* Card text */
 .spotlight-card p {
   margin: 0.3rem 0;
   color: var(--muted);
@@ -373,14 +402,53 @@ a.visit-site { display:inline-block; margin-top:.4rem; color:var(--primary); fon
 .level.silver { background: silver; color: #000; }
 .level.bronze { background: #cd7f32; color: #fff; }
 
-/* RESPONSIVE HERO */
+
+/* ============================
+   BUTTON BELOW SPOTLIGHTS
+============================ */
+.spotlight-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.spotlight-btn {
+  background: var(--primary);
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.spotlight-btn:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+
+
+/* ============================
+   RESPONSIVE ADJUSTMENTS
+============================ */
+@media (max-width: 900px) {
+  .events-weather {
+    grid-template-columns: 1fr; /* stack vertically */
+  }
+}
+
 @media (max-width: 700px) {
   .hero {
     height: 220px;
   }
+}
 
-  .forecast-grid {
-    flex-direction: column;
+@media (max-width: 600px) {
+  .spotlight-btn {
+    padding: 0.7rem 1.6rem;
+    font-size: 0.95rem;
   }
 }
- 

@@ -1,54 +1,84 @@
+// --- Weather Configuration ---
 const apiKey = "8a62803f4c40ab6696d7be437651a93c";
-const lat = 16.7666;
-const lon = -3.0026;
+const lat = 16.7666;   // Timbuktu latitude
+const lon = -3.0026;   // Timbuktu longitude
 
-const currentTemp = document.getElementById("currentTemp");
-const weatherDesc = document.getElementById("weatherDesc");
-const weatherIcon = document.getElementById("weatherIcon");
+// DOM Elements
+const tempEl = document.getElementById("temp");
+const descEl = document.getElementById("weatherDesc");
+const iconEl = document.getElementById("weatherIcon");
+
+const highEl = document.getElementById("highTemp");
+const lowEl = document.getElementById("lowTemp");
+const humidityEl = document.getElementById("humidity");
+
 const forecastContainer = document.getElementById("forecast");
 
+// --- Fetch Weather ---
 async function getWeather() {
   try {
-    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-    const response = await fetch(url);
-    const data = await response.json();
+    // API URLs
+    const currentURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+    const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
 
-    // CURRENT WEATHER
-    const current = data.list[0];
-    currentTemp.textContent = `${current.main.temp.toFixed(1)}°C`;
-    weatherDesc.textContent = current.weather[0].description;
+    // Fetch CURRENT weather
+    const currentResponse = await fetch(currentURL);
+    if (!currentResponse.ok) throw new Error("Current weather fetch failed");
 
-    const iconCode = current.weather[0].icon;
-    weatherIcon.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
-    weatherIcon.alt = current.weather[0].description;
+    const currentData = await currentResponse.json();
 
-    // FORECAST
+    // ➤ Update temperature & conditions
+    tempEl.textContent = `${currentData.main.temp.toFixed(1)} °C`;
+    descEl.textContent = currentData.weather[0].description;
+
+    // ➤ Update HIGH / LOW / HUMIDITY
+    highEl.textContent = `${currentData.main.temp_max.toFixed(1)} °C`;
+    lowEl.textContent = `${currentData.main.temp_min.toFixed(1)} °C`;
+    humidityEl.textContent = `${currentData.main.humidity}%`;
+
+    // ➤ Update current weather icon
+    const iconCode = currentData.weather[0].icon;
+    iconEl.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    iconEl.alt = currentData.weather[0].description;
+
+    // Fetch FORECAST
+    const forecastResponse = await fetch(forecastURL);
+    if (!forecastResponse.ok) throw new Error("Forecast fetch failed");
+
+    const forecastData = await forecastResponse.json();
+
+    // Filter for 3 days at 12:00 PM
+    const daily = forecastData.list
+      .filter(item => item.dt_txt.includes("12:00:00"))
+      .slice(0, 3);
+
+    // Clear previous results
     forecastContainer.innerHTML = "";
-    for (let i = 8; i <= 24; i += 8) {
-      const day = data.list[i];
+
+    // ➤ Insert text-only forecast cards
+    daily.forEach(day => {
+      const dateLabel = new Date(day.dt * 1000).toLocaleDateString("en-US", {
+        weekday: "long"
+      });
 
       const card = document.createElement("div");
       card.classList.add("forecast-card");
 
-      const dayName = new Date(day.dt * 1000).toLocaleDateString("en-US", {
-        weekday: "long"
-      });
-
-      const icon = day.weather[0].icon;
-
       card.innerHTML = `
-        <h4>${dayName}</h4>
-        <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="${day.weather[0].description}">
-        <p>${day.main.temp.toFixed(1)}°C</p>
+        <h4>${dateLabel}</h4>
+        <p>${day.main.temp.toFixed(1)} °C</p>
         <p>${day.weather[0].description}</p>
       `;
 
       forecastContainer.appendChild(card);
-    }
+    });
 
   } catch (err) {
-    console.error("Weather load error:", err);
+    console.error("Weather API Error:", err);
+    tempEl.textContent = "N/A";
+    descEl.textContent = "Unable to load weather";
   }
 }
 
+// Initialize
 getWeather();
