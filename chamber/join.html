@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Mahonry Munoz">
+  <meta name="description" content="Join the Timbuktu Chamber of Commerce and choose the membership level that fits your organization.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Join – Timbuktu Chamber of Commerce">
+  <meta property="og:description" content="Apply to join the Timbuktu Chamber of Commerce and grow your business network.">
+  <meta property="og:image" content="images/og-image.jpg">
+  <meta property="og:url" content="https://mmahonry.github.io/wdd231/chamber/join.html">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Join – Timbuktu Chamber of Commerce">
+  <meta name="twitter:description" content="Apply to become a member of the Timbuktu Chamber of Commerce.">
+  <meta name="twitter:image" content="images/og-image.jpg">
+
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+  <title>Join – Timbuktu Chamber of Commerce</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Font Awesome (no integrity so validator is happy) -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- JS -->
+  <script src="js/navigation.js" defer></script>
+  <script src="js/dates.js" defer></script>
+  <script src="js/join.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <img src="images/TCC.png" alt="Chamber Logo" class="logo-icon">
+        <h1>Timbuktu Chamber of Commerce</h1>
+      </div>
+
+      <button id="hamburger" class="hamburger" aria-controls="main-nav"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+      </button>
+
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="join.html" aria-current="page">Join</a></li>
+          <li><a href="discover.html">Discover</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="join-main">
+    <section class="join-layout">
+      <!-- JOIN FORM -->
+      <section class="join-form-wrapper">
+        <h2>Membership Application</h2>
+        <p class="join-intro">
+          Join the Timbuktu Chamber of Commerce and connect with local businesses,
+          resources, and community opportunities.
+        </p>
+
+        <form id="joinForm" method="get" action="thankyou.html" class="join-form">
+          <!-- First Name -->
+          <label>
+            First Name*
+            <input
+              type="text"
+              name="firstName"
+              required
+              autocomplete="given-name"
+              title="Enter your first name"
+            >
+          </label>
+
+          <!-- Last Name -->
+          <label>
+            Last Name*
+            <input
+              type="text"
+              name="lastName"
+              required
+              autocomplete="family-name"
+              title="Enter your last name"
+            >
+          </label>
+
+          <!-- Organization Title -->
+          <label>
+            Organizational Title
+            <input
+              type="text"
+              name="orgTitle"
+              autocomplete="organization-title"
+              title="Your title within the organization (only letters, spaces, and hyphens; at least 7 characters)"
+              pattern="[A-Za-z\s-]{7,}"
+            >
+          </label>
+
+          <!-- Email -->
+          <label>
+            Email*
+            <input
+              type="email"
+              name="email"
+              required
+              autocomplete="email"
+              title="Enter a valid email, e.g. name@example.com"
+              placeholder="name@example.com"
+            >
+          </label>
+
+          <!-- Mobile Phone -->
+          <label>
+            Mobile Phone*
+            <input
+              type="tel"
+              name="phone"
+              required
+              autocomplete="tel"
+              title="Enter your mobile phone number"
+            >
+          </label>
+
+          <!-- Organization Name -->
+          <label>
+            Business / Organization Name*
+            <input
+              type="text"
+              name="organization"
+              required
+              autocomplete="organization"
+              title="Enter the legal name of your business or organization"
+            >
+          </label>
+
+          <!-- Membership Level -->
+          <label>
+            Membership Level*
+            <select name="membership" required title="Select a membership level">
+              <option value="">Select a membership level</option>
+              <option value="np">NP Membership (Non-profit – no fee)</option>
+              <option value="bronze">Bronze Membership</option>
+              <option value="silver">Silver Membership</option>
+              <option value="gold">Gold Membership</option>
+            </select>
+          </label>
+
+          <!-- Business Description -->
+          <label>
+            Business / Organization Description
+            <textarea
+              name="description"
+              rows="4"
+              title="Describe your business or organization"
+            ></textarea>
+          </label>
+
+          <!-- Hidden Timestamp -->
+          <input type="hidden" id="timestamp" name="timestamp">
+
+          <!-- Submit -->
+          <button type="submit" class="cta-btn join-submit">
+            Submit Application
+          </button>
+        </form>
+      </section>
+
+      <!-- MEMBERSHIP CARDS -->
+      <aside class="membership-cards">
+        <h2>Membership Levels</h2>
+
+        <!-- NP -->
+        <article class="membership-card np" data-level="np">
+          <h3>NP Membership</h3>
+          <p class="price">No Fee – Non-Profit</p>
+          <p>Perfect for registered non-profit organizations.</p>
+          <button class="benefit-link" data-modal="npModal">View Benefits</button>
+        </article>
+
+        <!-- Bronze -->
+        <article class="membership-card bronze" data-level="bronze">
+          <h3>Bronze Membership</h3>
+          <p class="price">$150 / year</p>
+          <p>Basic visibility and networking opportunities.</p>
+          <button class="benefit-link" data-modal="bronzeModal">View Benefits</button>
+        </article>
+
+        <!-- Silver -->
+        <article class="membership-card silver" data-level="silver">
+          <h3>Silver Membership</h3>
+          <p class="price">$300 / year</p>
+          <p>Enhanced promotion and event discounts.</p>
+          <button class="benefit-link" data-modal="silverModal">View Benefits</button>
+        </article>
+
+        <!-- Gold -->
+        <article class="membership-card gold" data-level="gold">
+          <h3>Gold Membership</h3>
+          <p class="price">$600 / year</p>
+          <p>Premium spotlight and leadership opportunities.</p>
+          <button class="benefit-link" data-modal="goldModal">View Benefits</button>
+        </article>
+      </aside>
+    </section>
+  </main>
+
+  <!-- MODALS -->
+  <dialog id="npModal" class="membership-modal">
+    <div class="modal-inner">
+      <h2>NP Membership Benefits</h2>
+      <ul>
+        <li>Free membership for qualified non-profit organizations</li>
+        <li>Directory listing with NP badge</li>
+        <li>Access to community events and trainings</li>
+        <li>Opportunity to collaborate on community projects</li>
+      </ul>
+      <button class="modal-close" data-close>Close</button>
+    </div>
+  </dialog>
+
+  <dialog id="bronzeModal" class="membership-modal">
+    <div class="modal-inner">
+      <h2>Bronze Membership Benefits</h2>
+      <ul>
+        <li>Directory listing and website link</li>
+        <li>Invitations to networking events</li>
+        <li>Member-only newsletter & updates</li>
+        <li>Eligibility for basic sponsorships</li>
+      </ul>
+      <button class="modal-close" data-close>Close</button>
+    </div>
+  </dialog>
+
+  <dialog id="silverModal" class="membership-modal">
+    <div class="modal-inner">
+      <h2>Silver Membership Benefits</h2>
+      <ul>
+        <li>All Bronze benefits</li>
+        <li>Home page spotlight opportunities</li>
+        <li>Discounts on chamber workshops & trainings</li>
+        <li>Social media promotion twice per year</li>
+      </ul>
+      <button class="modal-close" data-close>Close</button>
+    </div>
+  </dialog>
+
+  <dialog id="goldModal" class="membership-modal">
+    <div class="modal-inner">
+      <h2>Gold Membership Benefits</h2>
+      <ul>
+        <li>All Silver benefits</li>
+        <li>Priority spotlight on home page & directory</li>
+        <li>VIP access to signature events</li>
+        <li>Opportunities to sponsor major initiatives</li>
+      </ul>
+      <button class="modal-close" data-close>Close</button>
+    </div>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <address>
+        Timbuktu Chamber of Commerce<br>
+        10 Rue De La Paix<br>
+        Timbuktu, Mali 999<br>
+        <a href="mailto:info@timbuktucoc.org">info@timbuktucoc.org</a><br>
+        (223) 555-2300
+      </address>
+
+      <div class="social">
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-square-youtube"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+
+      <div class="credits">
+        <p>WDD 231 Class Project – Mahonry Munoz</p>
+        <p>&copy; <span id="currentYear"></span> Timbuktu Chamber of Commerce</p>
+        <p id="lastModified">Last Modified: </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

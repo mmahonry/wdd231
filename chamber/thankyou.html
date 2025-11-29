@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Mahonry Munoz">
+  <meta name="description" content="Thank you for joining the Timbuktu Chamber of Commerce.">
+
+  <title>Thank You – Timbuktu Chamber</title>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <script src="js/navigation.js" defer></script>
+  <script src="js/dates.js" defer></script>
+  <script src="js/thankyou.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <img src="images/TCC.png" alt="Chamber Logo" class="logo-icon">
+        <h1>Timbuktu Chamber of Commerce</h1>
+      </div>
+
+      <button id="hamburger" class="hamburger" aria-controls="main-nav"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+      </button>
+
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="join.html">Join</a></li>
+          <li><a href="discover.html">Discover</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="join-main">
+    <section class="thankyou-card">
+      <h2>Thank You for Applying!</h2>
+      <p>We have received your membership application with the following details:</p>
+
+      <dl class="thankyou-details">
+        <div>
+          <dt>First Name</dt>
+          <dd id="out-firstName"></dd>
+        </div>
+        <div>
+          <dt>Last Name</dt>
+          <dd id="out-lastName"></dd>
+        </div>
+        <div>
+          <dt>Email</dt>
+          <dd id="out-email"></dd>
+        </div>
+        <div>
+          <dt>Mobile Phone</dt>
+          <dd id="out-phone"></dd>
+        </div>
+        <div>
+          <dt>Organization</dt>
+          <dd id="out-organization"></dd>
+        </div>
+        <div>
+          <dt>Membership Level</dt>
+          <dd id="out-membership"></dd>
+        </div>
+        <div>
+          <dt>Submitted On</dt>
+          <dd id="out-timestamp"></dd>
+        </div>
+      </dl>
+
+      <p class="thankyou-note">
+        A chamber representative will review your application and contact you soon.
+      </p>
+
+      <a href="index.html" class="cta-btn">Return to Home</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <address>
+        Timbuktu Chamber of Commerce<br>
+        10 Rue De La Paix<br>
+        Timbuktu, Mali 999<br>
+        <a href="mailto:info@timbuktucoc.org">info@timbuktucoc.org</a><br>
+        (223) 555-2300
+      </address>
+
+      <div class="social">
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-square-youtube"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+
+      <div class="credits">
+        <p>WDD 231 Class Project – Mahonry Munoz</p>
+        <p>&copy; <span id="currentYear"></span> Timbuktu Chamber of Commerce</p>
+        <p id="lastModified">Last Modified: </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
