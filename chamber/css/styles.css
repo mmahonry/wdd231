@@ -710,3 +710,13 @@ a.visit-site { display:inline-block; margin-top:.4rem; color:var(--primary); fon
   margin: 0;
   color: var(--muted);
 }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
