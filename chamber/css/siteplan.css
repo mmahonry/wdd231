@@ -1,0 +1,121 @@
+/* Importar fuentes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Variables basadas en tu Color Schema */
+:root {
+    --primary-color: #1e3a8a;
+    --secondary-color: #0d9488;
+    --bg-color: #f8fafc;
+    --text-color: #334155;
+    --white: #ffffff;
+}
+
+/* Estilos Generales */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 2rem;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header h2 {
+    font-weight: 400;
+    margin: 0.5rem 0 0 0;
+    font-size: 1.2rem;
+    color: #93c5fd;
+}
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+section {
+    padding: 1.5rem 0;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--secondary-color);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #e2e8f0;
+    margin: 0;
+}
+
+/* Muestras Visuales de Color (Color Boxes) */
+.color-box {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+}
+.color-box.primary { background-color: var(--primary-color); }
+.color-box.secondary { background-color: var(--secondary-color); }
+.color-box.background { background-color: var(--bg-color); }
+.color-box.text { background-color: var(--text-color); }
+
+/* Vistas de tipografía */
+.font-preview {
+    padding: 1rem;
+    background-color: var(--bg-color);
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 0 4px 4px 0;
+}
+.headings-preview {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+.body-preview {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Placeholders para Wireframes */
+.wireframe-placeholder {
+    background-color: #f1f5f9;
+    border: 2px dashed #94a3b8;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 6px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #64748b;
+    background-color: #e2e8f0;
+    margin-top: 3rem;
+}
